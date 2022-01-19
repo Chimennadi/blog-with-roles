@@ -1,0 +1,20 @@
+<x-admin-master>
+    @section("content")
+    <h1 class="h3 mb-0 text-gray-800">Edit Post</h1>
+    @csrf
+    <form action="{{route('post.update', $post->id)}}" method="post" enctype="multipart/form-data">
+        @csrf
+        @method('PATCH')
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" aria-describedby="" placeholder="Enter title" value="{{$post->title}}">
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea name="body" id="body" cols="30" rows="10" class="form-control">{{$post->body}}</textarea>
+        </div>
+        @csrf
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+    @stop
+</x-admin-master>
